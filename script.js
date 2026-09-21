@@ -378,11 +378,12 @@ function showQuiz() {
         return;
     }
 
-    const previousScore = getResultForToday();
+    const previousResult = getResultForToday();
 
-    if (previousScore !== null) {
-        showResult(previousScore);
-        return;
+if (previousResult !== null) {
+    showResult(previousResult.score, previousResult.answers);
+    return;
+}
     }
 
     playerName.textContent = pseudo;
