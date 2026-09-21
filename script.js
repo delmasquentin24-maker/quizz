@@ -21,12 +21,12 @@ import {
 
 /* Configuration Firebase : remplacer par vos valeurs Firebase */
 const firebaseConfig = {
-    apiKey: "VOTRE_API_KEY",
-    authDomain: "VOTRE_PROJET.firebaseapp.com",
-    projectId: "VOTRE_PROJET",
-    storageBucket: "VOTRE_PROJET.appspot.com",
-    messagingSenderId: "VOTRE_MESSAGING_SENDER_ID",
-    appId: "VOTRE_APP_ID"
+  apiKey: "AIzaSyBtIJMEyaxLS7wxVIqO5vgPndwRYeOjlnY",
+  authDomain: "quiz-orange.firebaseapp.com",
+  projectId: "quiz-orange",
+  storageBucket: "quiz-orange.firebasestorage.app",
+  messagingSenderId: "1050591189815",
+  appId: "1:1050591189815:web:c3a004d9bea8b01300d8b2"
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
