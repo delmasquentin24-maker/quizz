@@ -785,6 +785,606 @@ const questionsBank = [
     options: ["Jeudi", "Samedi", "Dimanche", "Lundi"],
     answer: 1
 },
+    {
+    id: 126,
+    question: "Quelle est la capitale de la Suisse ?",
+    options: ["Zurich", "Genève", "Berne", "Lausanne"],
+    answer: 2
+},
+{
+    id: 127,
+    question: "Dans quel pays se trouve la ville de Dublin ?",
+    options: ["Écosse", "Irlande", "Pays de Galles", "Angleterre"],
+    answer: 1
+},
+{
+    id: 128,
+    question: "Quel pays a la forme d'un hexagone sur une carte ?",
+    options: ["La France", "L'Espagne", "L'Allemagne", "La Pologne"],
+    answer: 0
+},
+{
+    id: 129,
+    question: "Quelle est la capitale de la Suède ?",
+    options: ["Oslo", "Stockholm", "Helsinki", "Copenhague"],
+    answer: 1
+},
+{
+    id: 130,
+    question: "Quel fleuve traverse Londres ?",
+    options: ["La Tamise", "Le Danube", "Le Rhin", "La Seine"],
+    answer: 0
+},
+{
+    id: 131,
+    question: "Sur quel continent se trouve le Brésil ?",
+    options: ["Afrique", "Asie", "Amérique du Sud", "Europe"],
+    answer: 2
+},
+{
+    id: 132,
+    question: "Quelle est la capitale de la Norvège ?",
+    options: ["Oslo", "Bergen", "Trondheim", "Stavanger"],
+    answer: 0
+},
+{
+    id: 133,
+    question: "Dans quel pays se trouve le Taj Mahal ?",
+    options: ["Inde", "Chine", "Japon", "Népal"],
+    answer: 0
+},
+{
+    id: 134,
+    question: "Quelle île est la plus grande du monde ?",
+    options: ["Madagascar", "Le Groenland", "L'Islande", "La Nouvelle-Guinée"],
+    answer: 1
+},
+{
+    id: 135,
+    question: "Quel pays est traversé par le Nil ?",
+    options: ["Égypte", "Espagne", "Canada", "Australie"],
+    answer: 0
+},
+{
+    id: 136,
+    question: "Quelle est la capitale de l'Autriche ?",
+    options: ["Salzbourg", "Vienne", "Graz", "Innsbruck"],
+    answer: 1
+},
+{
+    id: 137,
+    question: "Dans quel pays se trouve le mont Fuji ?",
+    options: ["Chine", "Japon", "Corée du Sud", "Vietnam"],
+    answer: 1
+},
+{
+    id: 138,
+    question: "Quelle est la capitale de la Finlande ?",
+    options: ["Helsinki", "Stockholm", "Reykjavik", "Tallinn"],
+    answer: 0
+},
+{
+    id: 139,
+    question: "Quelle ville est surnommée la Big Apple ?",
+    options: ["Los Angeles", "Chicago", "New York", "Boston"],
+    answer: 2
+},
+{
+    id: 140,
+    question: "Quel pays possède la ville de Rio de Janeiro ?",
+    options: ["Argentine", "Brésil", "Mexique", "Portugal"],
+    answer: 1
+},
+{
+    id: 141,
+    question: "Quel ancien peuple vivait dans la Rome antique ?",
+    options: ["Les Romains", "Les Vikings", "Les Incas", "Les Celtes"],
+    answer: 0
+},
+{
+    id: 142,
+    question: "Quel événement historique est célébré en France le 14 juillet ?",
+    options: ["La prise de la Bastille", "L'armistice de 1918", "La fête du Travail", "La fin de la Seconde Guerre mondiale"],
+    answer: 0
+},
+{
+    id: 143,
+    question: "Qui était Jeanne d'Arc ?",
+    options: ["Une reine d'Angleterre", "Une héroïne française", "Une écrivaine italienne", "Une impératrice romaine"],
+    answer: 1
+},
+{
+    id: 144,
+    question: "Quel paquebot a coulé en 1912 après avoir heurté un iceberg ?",
+    options: ["Le Britannic", "Le Titanic", "Le Queen Mary", "Le Lusitania"],
+    answer: 1
+},
+{
+    id: 145,
+    question: "Quelle ville fut ensevelie par le Vésuve avec Pompéi ?",
+    options: ["Herculanum", "Athènes", "Carthage", "Sparte"],
+    answer: 0
+},
+{
+    id: 146,
+    question: "Quel président américain est associé à l'émancipation des esclaves ?",
+    options: ["George Washington", "Abraham Lincoln", "Theodore Roosevelt", "John Kennedy"],
+    answer: 1
+},
+{
+    id: 147,
+    question: "Quelle civilisation a inventé les hiéroglyphes ?",
+    options: ["Les Égyptiens", "Les Vikings", "Les Romains", "Les Mayas"],
+    answer: 0
+},
+{
+    id: 148,
+    question: "Quel explorateur a donné son nom à l'Amérique ?",
+    options: ["Amerigo Vespucci", "Marco Polo", "James Cook", "Jacques Cartier"],
+    answer: 0
+},
+{
+    id: 149,
+    question: "Quelle guerre a opposé la France et l'Angleterre pendant plus d'un siècle ?",
+    options: ["La guerre de Sept Ans", "La guerre de Cent Ans", "La guerre froide", "La guerre de Crimée"],
+    answer: 1
+},
+{
+    id: 150,
+    question: "Quel roi français a dit : « Paris vaut bien une messe » ?",
+    options: ["Henri IV", "Louis XIV", "Louis IX", "François Ier"],
+    answer: 0
+},
+{
+    id: 151,
+    question: "Quel scientifique français est connu pour ses travaux sur les microbes ?",
+    options: ["Louis Pasteur", "Blaise Pascal", "Antoine Lavoisier", "André-Marie Ampère"],
+    answer: 0
+},
+{
+    id: 152,
+    question: "Quelle force nous maintient au sol ?",
+    options: ["Le magnétisme", "La gravité", "L'électricité", "La pression"],
+    answer: 1
+},
+{
+    id: 153,
+    question: "Quel est le symbole chimique du fer ?",
+    options: ["Fr", "Fe", "Fi", "Ir"],
+    answer: 1
+},
+{
+    id: 154,
+    question: "Quel est l'organe principal de la vision ?",
+    options: ["L'oreille", "L'œil", "Le nez", "La peau"],
+    answer: 1
+},
+{
+    id: 155,
+    question: "Comment appelle-t-on un animal qui mange uniquement des végétaux ?",
+    options: ["Carnivore", "Herbivore", "Omnivore", "Insectivore"],
+    answer: 1
+},
+{
+    id: 156,
+    question: "Quelle couche gazeuse protège la Terre des rayons ultraviolets ?",
+    options: ["La couche d'ozone", "La troposphère", "La stratosphère", "La vapeur d'eau"],
+    answer: 0
+},
+{
+    id: 157,
+    question: "Quel est le principal gaz présent dans l'air ?",
+    options: ["Oxygène", "Azote", "Dioxyde de carbone", "Hydrogène"],
+    answer: 1
+},
+{
+    id: 158,
+    question: "Quel insecte produit du miel ?",
+    options: ["La fourmi", "L'abeille", "Le papillon", "La coccinelle"],
+    answer: 1
+},
+{
+    id: 159,
+    question: "Quel animal est connu pour changer de couleur afin de se camoufler ?",
+    options: ["Le chameau", "Le caméléon", "Le dauphin", "Le hérisson"],
+    answer: 1
+},
+{
+    id: 160,
+    question: "Quel est le nom de l'étoile autour de laquelle tourne la Terre ?",
+    options: ["Sirius", "Le Soleil", "Polaris", "Véga"],
+    answer: 1
+},
+{
+    id: 161,
+    question: "Qui a écrit Les Fables ?",
+    options: ["Jean de La Fontaine", "Molière", "Voltaire", "Rabelais"],
+    answer: 0
+},
+{
+    id: 162,
+    question: "Quel auteur a écrit L'Étranger ?",
+    options: ["Albert Camus", "Victor Hugo", "Gustave Flaubert", "Honoré de Balzac"],
+    answer: 0
+},
+{
+    id: 163,
+    question: "Qui a peint La Nuit étoilée ?",
+    options: ["Vincent van Gogh", "Claude Monet", "Edgar Degas", "Paul Cézanne"],
+    answer: 0
+},
+{
+    id: 164,
+    question: "Quel peintre est associé au cubisme avec Georges Braque ?",
+    options: ["Pablo Picasso", "Salvador Dalí", "Auguste Renoir", "Henri Rousseau"],
+    answer: 0
+},
+{
+    id: 165,
+    question: "Quel auteur a écrit Le Comte de Monte-Cristo ?",
+    options: ["Alexandre Dumas", "Jules Verne", "Émile Zola", "Stendhal"],
+    answer: 0
+},
+{
+    id: 166,
+    question: "Quel compositeur est devenu sourd à la fin de sa vie ?",
+    options: ["Mozart", "Beethoven", "Vivaldi", "Bach"],
+    answer: 1
+},
+{
+    id: 167,
+    question: "Quel artiste est connu pour ses montres molles dans ses tableaux ?",
+    options: ["Salvador Dalí", "Pablo Picasso", "Claude Monet", "Paul Klee"],
+    answer: 0
+},
+{
+    id: 168,
+    question: "Quelle œuvre de Victor Hugo raconte l'histoire de Jean Valjean ?",
+    options: ["Notre-Dame de Paris", "Les Misérables", "Hernani", "Ruy Blas"],
+    answer: 1
+},
+{
+    id: 169,
+    question: "Quel personnage de bande dessinée est accompagné du chien Milou ?",
+    options: ["Astérix", "Tintin", "Lucky Luke", "Spirou"],
+    answer: 1
+},
+{
+    id: 170,
+    question: "Qui a créé le personnage d'Astérix avec Albert Uderzo ?",
+    options: ["René Goscinny", "Hergé", "Franquin", "Morris"],
+    answer: 0
+},
+{
+    id: 171,
+    question: "Combien font 15 plus 27 ?",
+    options: ["40", "41", "42", "43"],
+    answer: 2
+},
+{
+    id: 172,
+    question: "Quel est le résultat de 6 multiplié par 7 ?",
+    options: ["36", "40", "42", "48"],
+    answer: 2
+},
+{
+    id: 173,
+    question: "Combien font 81 moins 19 ?",
+    options: ["60", "61", "62", "63"],
+    answer: 2
+},
+{
+    id: 174,
+    question: "Quel est le double de 35 ?",
+    options: ["60", "65", "70", "75"],
+    answer: 2
+},
+{
+    id: 175,
+    question: "Quelle fraction correspond à la moitié ?",
+    options: ["1/3", "1/2", "1/4", "2/3"],
+    answer: 1
+},
+{
+    id: 176,
+    question: "Combien font 144 divisé par 12 ?",
+    options: ["10", "11", "12", "13"],
+    answer: 2
+},
+{
+    id: 177,
+    question: "Quel est le nombre impair parmi ces propositions ?",
+    options: ["12", "18", "21", "24"],
+    answer: 2
+},
+{
+    id: 178,
+    question: "Combien de degrés compte un angle droit ?",
+    options: ["45", "90", "180", "360"],
+    answer: 1
+},
+{
+    id: 179,
+    question: "Quel est le résultat de 5 puissance 2 ?",
+    options: ["10", "15", "20", "25"],
+    answer: 3
+},
+{
+    id: 180,
+    question: "Combien de centimètres font un mètre ?",
+    options: ["10", "100", "1 000", "10 000"],
+    answer: 1
+},
+{
+    id: 181,
+    question: "Dans quel sport utilise-t-on une balle ovale ?",
+    options: ["Le football", "Le rugby", "Le tennis", "Le volleyball"],
+    answer: 1
+},
+{
+    id: 182,
+    question: "Combien de joueurs une équipe de basketball aligne-t-elle sur le terrain ?",
+    options: ["5", "6", "7", "11"],
+    answer: 0
+},
+{
+    id: 183,
+    question: "Quel sport se pratique avec des gants sur un ring ?",
+    options: ["L'escrime", "La boxe", "Le judo", "Le tennis"],
+    answer: 1
+},
+{
+    id: 184,
+    question: "Quel pays est associé à la naissance du judo ?",
+    options: ["La Chine", "Le Japon", "La Corée du Sud", "La Thaïlande"],
+    answer: 1
+},
+{
+    id: 185,
+    question: "Quel sport utilise une planche et des vagues ?",
+    options: ["Le ski", "Le surf", "Le patinage", "L'aviron"],
+    answer: 1
+},
+{
+    id: 186,
+    question: "Dans quel sport utilise-t-on un fleuret ?",
+    options: ["L'escrime", "Le golf", "Le hockey", "Le cricket"],
+    answer: 0
+},
+{
+    id: 187,
+    question: "Quel sport consiste à parcourir 42,195 kilomètres ?",
+    options: ["Le marathon", "Le triathlon", "Le décathlon", "Le sprint"],
+    answer: 0
+},
+{
+    id: 188,
+    question: "Quel sport se joue habituellement sur une patinoire ?",
+    options: ["Le hockey sur glace", "Le baseball", "Le handball", "Le rugby"],
+    answer: 0
+},
+{
+    id: 189,
+    question: "Quel nageur français a remporté plusieurs médailles olympiques en 2008 et 2012 ?",
+    options: ["Laure Manaudou", "Alain Bernard", "Florent Manaudou", "Yannick Agnel"],
+    answer: 3
+},
+{
+    id: 190,
+    question: "Quel sport est associé au maillot jaune ?",
+    options: ["Le cyclisme", "Le football", "Le tennis", "La natation"],
+    answer: 0
+},
+{
+    id: 191,
+    question: "Quel objet permet de stocker des fichiers sur un ordinateur ?",
+    options: ["Un disque dur", "Un clavier", "Une souris", "Un écran"],
+    answer: 0
+},
+{
+    id: 192,
+    question: "Que signifie PDF ?",
+    options: ["Portable Document Format", "Personal Data File", "Public Digital Folder", "Program Data Form"],
+    answer: 0
+},
+{
+    id: 193,
+    question: "Quel logiciel permet généralement de naviguer sur Internet ?",
+    options: ["Un navigateur", "Un tableur", "Un traitement de texte", "Un antivirus"],
+    answer: 0
+},
+{
+    id: 194,
+    question: "Quel raccourci clavier permet généralement de copier du texte sous Windows ?",
+    options: ["Ctrl + X", "Ctrl + C", "Ctrl + V", "Ctrl + Z"],
+    answer: 1
+},
+{
+    id: 195,
+    question: "Quel raccourci clavier permet généralement de coller du texte sous Windows ?",
+    options: ["Ctrl + A", "Ctrl + C", "Ctrl + V", "Ctrl + S"],
+    answer: 2
+},
+{
+    id: 196,
+    question: "Qu'est-ce qu'un mot de passe robuste doit généralement contenir ?",
+    options: ["Seulement son prénom", "Une combinaison variée de caractères", "Uniquement des chiffres", "La date de naissance"],
+    answer: 1
+},
+{
+    id: 197,
+    question: "Quel protocole sécurise généralement un site web ?",
+    options: ["HTTP", "HTTPS", "FTP", "SMTP"],
+    answer: 1
+},
+{
+    id: 198,
+    question: "Quel symbole indique souvent une connexion sécurisée dans un navigateur ?",
+    options: ["Une étoile", "Un cadenas", "Un drapeau", "Une loupe"],
+    answer: 1
+},
+{
+    id: 199,
+    question: "Quel type de logiciel malveillant demande souvent une rançon ?",
+    options: ["Un pare-feu", "Un ransomware", "Un navigateur", "Un tableur"],
+    answer: 1
+},
+{
+    id: 200,
+    question: "Quelle action est recommandée avant de cliquer sur un lien inattendu ?",
+    options: ["Vérifier l'expéditeur", "Le transférer à tous", "Saisir son mot de passe", "Désactiver l'antivirus"],
+    answer: 0
+},
+{
+    id: 201,
+    question: "Quel fromage italien est souvent utilisé sur les pizzas ?",
+    options: ["Mozzarella", "Roquefort", "Comté", "Cheddar"],
+    answer: 0
+},
+{
+    id: 202,
+    question: "Quel fruit donne les raisins secs ?",
+    options: ["La pomme", "Le raisin", "La prune", "La figue"],
+    answer: 1
+},
+{
+    id: 203,
+    question: "Quel légume est principalement utilisé pour faire des frites ?",
+    options: ["La carotte", "La pomme de terre", "La courgette", "L'aubergine"],
+    answer: 1
+},
+{
+    id: 204,
+    question: "Quel ingrédient donne sa couleur jaune à une omelette ?",
+    options: ["Le blanc d'œuf", "Le jaune d'œuf", "Le sel", "La farine"],
+    answer: 1
+},
+{
+    id: 205,
+    question: "Quel aliment est produit par les abeilles ?",
+    options: ["Le miel", "Le beurre", "Le fromage", "Le café"],
+    answer: 0
+},
+{
+    id: 206,
+    question: "Quel jour est traditionnellement associé au début du week-end en France ?",
+    options: ["Jeudi", "Vendredi", "Samedi", "Dimanche"],
+    answer: 2
+},
+{
+    id: 207,
+    question: "Combien de jours compte une année normale ?",
+    options: ["360", "364", "365", "366"],
+    answer: 2
+},
+{
+    id: 208,
+    question: "Quel mois compte généralement 28 jours ?",
+    options: ["Février", "Mars", "Avril", "Mai"],
+    answer: 0
+},
+{
+    id: 209,
+    question: "Quelle saison commence généralement autour du 21 juin dans l'hémisphère nord ?",
+    options: ["Le printemps", "L'été", "L'automne", "L'hiver"],
+    answer: 1
+},
+{
+    id: 210,
+    question: "Quel moment de la journée vient après l'après-midi ?",
+    options: ["Le matin", "Le soir", "L'aube", "Midi"],
+    answer: 1
+},
+{
+    id: 211,
+    question: "Quel acteur interprète le personnage de Harry Potter au cinéma ?",
+    options: ["Daniel Radcliffe", "Elijah Wood", "Tom Holland", "Robert Pattinson"],
+    answer: 0
+},
+{
+    id: 212,
+    question: "Quel film d'animation met en scène un jouet nommé Buzz l'Éclair ?",
+    options: ["Cars", "Toy Story", "Shrek", "Le Roi Lion"],
+    answer: 1
+},
+{
+    id: 213,
+    question: "Quel personnage vit dans un ananas sous la mer ?",
+    options: ["Mickey", "Bob l'éponge", "Simba", "Donald"],
+    answer: 1
+},
+{
+    id: 214,
+    question: "Quelle saga met en scène le personnage de Luke Skywalker ?",
+    options: ["Harry Potter", "Star Wars", "Le Seigneur des anneaux", "Indiana Jones"],
+    answer: 1
+},
+{
+    id: 215,
+    question: "Quel super-héros est connu pour son marteau Mjolnir ?",
+    options: ["Batman", "Thor", "Spider-Man", "Superman"],
+    answer: 1
+},
+{
+    id: 216,
+    question: "Quelle couleur obtient-on en mélangeant du rouge et du blanc ?",
+    options: ["Vert", "Violet", "Rose", "Orange"],
+    answer: 2
+},
+{
+    id: 217,
+    question: "Quelle couleur obtient-on en mélangeant du rouge et du bleu ?",
+    options: ["Violet", "Vert", "Jaune", "Marron"],
+    answer: 0
+},
+{
+    id: 218,
+    question: "Quel animal est souvent associé à la lenteur ?",
+    options: ["Le guépard", "L'escargot", "Le cheval", "Le dauphin"],
+    answer: 1
+},
+{
+    id: 219,
+    question: "Quel animal est souvent appelé le meilleur ami de l'homme ?",
+    options: ["Le chat", "Le chien", "Le cheval", "Le lapin"],
+    answer: 1
+},
+{
+    id: 220,
+    question: "Quel animal porte sa maison sur son dos ?",
+    options: ["Le hérisson", "L'escargot", "La tortue", "Le crabe"],
+    answer: 2
+},
+{
+    id: 221,
+    question: "Quelle langue est principalement parlée en Allemagne ?",
+    options: ["L'allemand", "Le néerlandais", "Le suédois", "Le danois"],
+    answer: 0
+},
+{
+    id: 222,
+    question: "Comment dit-on « bonjour » en anglais ?",
+    options: ["Gracias", "Hello", "Ciao", "Danke"],
+    answer: 1
+},
+{
+    id: 223,
+    question: "Comment dit-on « merci » en espagnol ?",
+    options: ["Grazie", "Merci", "Gracias", "Danke"],
+    answer: 2
+},
+{
+    id: 224,
+    question: "Quel signe de ponctuation termine généralement une question ?",
+    options: ["Le point", "La virgule", "Le point d'interrogation", "Le point-virgule"],
+    answer: 2
+},
+{
+    id: 225,
+    question: "Quel mot est le contraire de « chaud » ?",
+    options: ["Tiède", "Froid", "Brûlant", "Humide"],
+    answer: 1
+},
 ];
 
 /* Éléments HTML */
