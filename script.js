@@ -209,6 +209,9 @@ const playerName = document.getElementById("player-name");
 const quizDateElement = document.getElementById("quiz-date");
 const resultName = document.getElementById("result-name");
 const resultScore = document.getElementById("result-score");
+const correctionsContainer = document.getElementById("corrections-container");
+const leaderboard = document.getElementById("leaderboard");
+const leaderboardStatus = document.getElementById("leaderboard-status");
 
 let dailyQuestions = [];
 
@@ -306,15 +309,23 @@ function getResultForToday() {
     }
 
     const score = localStorage.getItem("quizScore");
+    const answers = localStorage.getItem("quizAnswers");
 
-    return score === null ? null : Number(score);
+    if (score === null || answers === null) {
+        return null;
+    }
+
+    return {
+        score: Number(score),
+        answers: JSON.parse(answers)
+    };
 }
 
-function saveResult(score) {
+function saveResult(score, answers) {
     localStorage.setItem("quizCompletedDate", getTodayKey());
     localStorage.setItem("quizScore", String(score));
+    localStorage.setItem("quizAnswers", JSON.stringify(answers));
 }
-
 function renderQuestions() {
     questionsContainer.replaceChildren();
 
