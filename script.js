@@ -539,10 +539,11 @@ pseudoForm.addEventListener("submit", (event) => {
     showQuiz();
 });
 
-quizForm.addEventListener("submit", (event) => {
+quizForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const formData = new FormData(quizForm);
+    const answers = {};
     let score = 0;
 
     for (const question of dailyQuestions) {
@@ -553,13 +554,18 @@ quizForm.addEventListener("submit", (event) => {
             return;
         }
 
+        answers[question.id] = Number(answer);
+
         if (Number(answer) === question.answer) {
             score++;
         }
     }
 
-    saveResult(score);
-    showResult(score);
+    saveResult(score, answers);
+
+    await saveScoreToFirebase(score);
+
+    showResult(score, answers);
 });
 
 function changePseudo() {
