@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quiz culture générale</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.3/dist/css/boosted.min.css"
+          rel="stylesheet"
+          integrity="sha384-laZ3JUZ5Ln2YqhfBvadDpNyBo7w5qmWaRnnXuRwNhJeTEFuSdGbzl4ZGHAEnTozR"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <span class="fw-bold">Quiz culture générale</span>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <!-- Écran de saisie du pseudo -->
+        <section id="pseudo-screen" class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <h1 class="mb-4">Quiz du jour</h1>
+
+                <p class="lead">
+                    Répondez à 10 questions de culture générale.
+                </p>
+
+                <form id="pseudo-form" novalidate>
+                    <div class="mb-4">
+                        <label for="pseudo" class="form-label">
+                            Votre pseudo
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               id="pseudo"
+                               name="pseudo"
+                               minlength="2"
+                               maxlength="30"
+                               autocomplete="nickname"
+                               required>
+
+                        <div class="form-text">
+                            Entre 2 et 30 caractères.
+                        </div>
+                    </div>
+
+                    <div id="pseudo-error" class="alert alert-danger d-none" role="alert"></div>
+
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        Commencer le quiz
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Écran des questions -->
+        <section id="quiz-screen" class="d-none">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+                <div>
+                    <h1 class="mb-1">Bonjour <span id="player-name"></span></h1>
+                    <p class="lead mb-0">
+                        Les 10 questions du <span id="quiz-date"></span>.
+                    </p>
+                </div>
+
+                <button id="change-pseudo" type="button" class="btn btn-outline-secondary">
+                    Changer de pseudo
+                </button>
+            </div>
+
+            <div id="quiz-error" class="alert alert-danger d-none" role="alert"></div>
+
+            <form id="quiz-form">
+                <div id="questions-container"></div>
+
+                <button type="submit" class="btn btn-primary btn-lg">
+                    Envoyer mes réponses
+                </button>
+            </form>
+        </section>
+
+        <!-- Écran du résultat -->
+        <section id="result-screen" class="row justify-content-center d-none">
+            <div class="col-md-8 col-lg-6">
+                <div class="alert alert-success" role="status">
+                    <h1 class="h3">Quiz terminé</h1>
+                    <p class="mb-0">
+                        Bonjour <strong id="result-name"></strong>, votre score est de
+                        <strong id="result-score"></strong>/10.
+                    </p>
+                </div>
+
+                <p>Revenez demain pour découvrir un nouveau quiz.</p>
+
+                <button id="result-change-pseudo" type="button" class="btn btn-outline-secondary">
+                    Changer de pseudo
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
