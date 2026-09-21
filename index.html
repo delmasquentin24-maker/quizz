@@ -87,25 +87,35 @@
         </section>
 
         <!-- Écran du résultat -->
-        <section id="result-screen" class="row justify-content-center d-none">
-            <div class="col-md-8 col-lg-6">
-                <div class="alert alert-success" role="status">
-                    <h1 class="h3">Quiz terminé</h1>
-                    <p class="mb-0">
-                        Bonjour <strong id="result-name"></strong>, votre score est de
-                        <strong id="result-score"></strong>/10.
-                    </p>
-                </div>
-
-                <p>Revenez demain pour découvrir un nouveau quiz.</p>
-
-                <button id="result-change-pseudo" type="button" class="btn btn-outline-secondary">
-                    Changer de pseudo
-                </button>
+       <section id="result-screen" class="d-none">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="alert alert-success" role="status">
+                <h1 class="h3">Quiz terminé</h1>
+                <p class="mb-0">
+                    Bonjour <strong id="result-name"></strong>, votre score est de
+                    <strong id="result-score"></strong>/10.
+                </p>
             </div>
-        </section>
-    </main>
 
-    <script src="script.js"></script>
-</body>
-</html>
+            <h2 class="h3 mt-5">Correction</h2>
+
+            <div id="corrections-container"></div>
+
+            <h2 class="h3 mt-5">Classement du jour</h2>
+
+            <div id="leaderboard-status" class="text-muted mb-3">
+                Chargement du classement…
+            </div>
+
+            <ol id="leaderboard" class="list-group list-group-numbered mb-4"></ol>
+
+            <button id="result-change-pseudo"
+                    type="button"
+                    class="btn btn-outline-secondary">
+                Changer de pseudo
+            </button>
+        </div>
+    </div>
+</section>
+
