@@ -784,7 +784,7 @@ const questionsBank = [
     question: "Quel jour vient après le vendredi ?",
     options: ["Jeudi", "Samedi", "Dimanche", "Lundi"],
     answer: 1
-}
+},
 ];
 
 /* Éléments HTML */
