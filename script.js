@@ -1,10 +1,5 @@
 "use strict";
 
-/*
- * Banque de questions.
- * Ajouter de nouvelles questions ici pour enrichir le quiz.
- * "answer" représente la position de la bonne réponse (0, 1, 2 ou 3).
- */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
@@ -24,10 +19,7 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/*
- * Remplacer les valeurs ci-dessous par celles affichées
- * dans la configuration de votre application Firebase.
- */
+/* Configuration Firebase : remplacer par vos valeurs Firebase */
 const firebaseConfig = {
     apiKey: "VOTRE_API_KEY",
     authDomain: "VOTRE_PROJET.firebaseapp.com",
@@ -40,6 +32,8 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
+
+/* Banque de questions */
 const questionsBank = [
     {
         id: 1,
@@ -193,6 +187,7 @@ const questionsBank = [
     }
 ];
 
+/* Éléments HTML */
 const pseudoScreen = document.getElementById("pseudo-screen");
 const quizScreen = document.getElementById("quiz-screen");
 const resultScreen = document.getElementById("result-screen");
@@ -207,15 +202,17 @@ const questionsContainer = document.getElementById("questions-container");
 
 const playerName = document.getElementById("player-name");
 const quizDateElement = document.getElementById("quiz-date");
+
 const resultName = document.getElementById("result-name");
 const resultScore = document.getElementById("result-score");
+
 const correctionsContainer = document.getElementById("corrections-container");
 const leaderboard = document.getElementById("leaderboard");
 const leaderboardStatus = document.getElementById("leaderboard-status");
 
 let dailyQuestions = [];
 
-/* Date locale au format AAAA-MM-JJ */
+/* Retourne la date locale : AAAA-MM-JJ */
 function getTodayKey() {
     const now = new Date();
 
@@ -226,7 +223,7 @@ function getTodayKey() {
     return `${year}-${month}-${day}`;
 }
 
-/* Date lisible en français */
+/* Date française lisible */
 function getFrenchDate() {
     return new Intl.DateTimeFormat("fr-FR", {
         day: "2-digit",
@@ -235,19 +232,19 @@ function getFrenchDate() {
     }).format(new Date());
 }
 
-/* Génère un nombre stable à partir de la date */
+/* Crée une valeur stable à partir de la date */
 function hashString(value) {
     let hash = 0;
 
-    for (let i = 0; i < value.length; i++) {
-        hash = ((hash << 5) - hash) + value.charCodeAt(i);
+    for (let index = 0; index < value.length; index++) {
+        hash = ((hash << 5) - hash) + value.charCodeAt(index);
         hash |= 0;
     }
 
     return hash;
 }
 
-/* Mélange déterministe : mêmes questions pendant toute la journée */
+/* Mélange stable : mêmes questions pour tous durant la journée */
 function seededShuffle(items, seed) {
     const shuffled = [...items];
     let currentSeed = seed;
@@ -262,9 +259,13 @@ function seededShuffle(items, seed) {
         return ((value ^ value >>> 14) >>> 0) / 4294967296;
     }
 
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    for (let index = shuffled.length - 1; index > 0; index--) {
+        const randomIndex = Math.floor(random() * (index + 1));
+
+        [shuffled[index], shuffled[randomIndex]] = [
+            shuffled[randomIndex],
+            shuffled[index]
+        ];
     }
 
     return shuffled;
@@ -272,6 +273,7 @@ function seededShuffle(items, seed) {
 
 function getDailyQuestions() {
     const seed = hashString(getTodayKey());
+
     return seededShuffle(questionsBank, seed).slice(0, 10);
 }
 
@@ -315,10 +317,14 @@ function getResultForToday() {
         return null;
     }
 
-    return {
-        score: Number(score),
-        answers: JSON.parse(answers)
-    };
+    try {
+        return {
+            score: Number(score),
+            answers: JSON.parse(answers)
+        };
+    } catch {
+        return null;
+    }
 }
 
 function saveResult(score, answers) {
@@ -326,6 +332,7 @@ function saveResult(score, answers) {
     localStorage.setItem("quizScore", String(score));
     localStorage.setItem("quizAnswers", JSON.stringify(answers));
 }
+
 function renderQuestions() {
     questionsContainer.replaceChildren();
 
@@ -369,44 +376,6 @@ function renderQuestions() {
     });
 }
 
-function showQuiz() {
-    const pseudo = getPseudo();
-
-    if (!pseudo) {
-        showScreen(pseudoScreen);
-        pseudoInput.focus();
-        return;
-    }
-
-    const previousResult = getResultForToday();
-
-if (previousResult !== null) {
-    showResult(previousResult.score, previousResult.answers);
-    return;
-}
-    }
-
-    playerName.textContent = pseudo;
-    quizDateElement.textContent = getFrenchDate();
-
-    dailyQuestions = getDailyQuestions();
-    renderQuestions();
-
-    hideError(quizError);
-    showScreen(quizScreen);
-}
-
-function showResult(score, answers) {
-    resultName.textContent = getPseudo();
-    resultScore.textContent = String(score);
-
-    dailyQuestions = getDailyQuestions();
-    renderCorrections(answers);
-
-    showScreen(resultScreen);
-    loadLeaderboard();
-}
-}
 function renderCorrections(answers) {
     correctionsContainer.replaceChildren();
 
@@ -425,12 +394,20 @@ function renderCorrections(answers) {
         title.textContent = `Question ${index + 1} : ${question.question}`;
 
         const selected = document.createElement("p");
-        selected.className = isCorrect ? "answer-correct mb-2" : "answer-incorrect mb-2";
+        selected.className = isCorrect
+            ? "answer-correct mb-2"
+            : "answer-incorrect mb-2";
+
         selected.textContent = `Votre réponse : ${question.options[selectedIndex]}`;
 
         const correct = document.createElement("p");
         correct.className = "mb-0";
-        correct.innerHTML = `<strong>Bonne réponse :</strong> ${question.options[question.answer]}`;
+
+        const strong = document.createElement("strong");
+        strong.textContent = "Bonne réponse : ";
+
+        correct.appendChild(strong);
+        correct.append(question.options[question.answer]);
 
         body.appendChild(title);
         body.appendChild(selected);
@@ -470,7 +447,7 @@ async function saveScoreToFirebase(score) {
         });
 
     } catch (error) {
-        console.error("Enregistrement du score indisponible.", error);
+        console.error("Enregistrement Firebase indisponible :", error);
     }
 }
 
@@ -508,7 +485,7 @@ async function loadLeaderboard() {
             item.className = "list-group-item d-flex justify-content-between align-items-center";
 
             const pseudo = document.createElement("span");
-            pseudo.textContent = data.pseudo;
+            pseudo.textContent = data.pseudo || "Anonyme";
 
             const score = document.createElement("strong");
             score.textContent = `${data.score}/10`;
@@ -520,17 +497,59 @@ async function loadLeaderboard() {
         });
 
     } catch (error) {
-        console.error("Classement indisponible.", error);
+        console.error("Classement Firebase indisponible :", error);
         leaderboardStatus.textContent = "Le classement est momentanément indisponible.";
     }
 }
+
+function showQuiz() {
+    const pseudo = getPseudo();
+
+    if (!pseudo) {
+        showScreen(pseudoScreen);
+        pseudoInput.focus();
+        return;
+    }
+
+    const previousResult = getResultForToday();
+
+    if (previousResult !== null) {
+        showResult(previousResult.score, previousResult.answers);
+        return;
+    }
+
+    playerName.textContent = pseudo;
+    quizDateElement.textContent = getFrenchDate();
+
+    dailyQuestions = getDailyQuestions();
+    renderQuestions();
+
+    hideError(quizError);
+    showScreen(quizScreen);
+}
+
+function showResult(score, answers) {
+    resultName.textContent = getPseudo();
+    resultScore.textContent = String(score);
+
+    dailyQuestions = getDailyQuestions();
+    renderCorrections(answers);
+
+    showScreen(resultScreen);
+    loadLeaderboard();
+}
+
+/* Validation et enregistrement du pseudo */
 pseudoForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const pseudo = pseudoInput.value.trim();
 
-    if (pseudo.length < 2 || pseudo.length > 30) {
-        showError(pseudoError, "Le pseudo doit contenir entre 2 et 30 caractères.");
+    if (!/^[\p{L}\p{N} _-]{2,30}$/u.test(pseudo)) {
+        showError(
+            pseudoError,
+            "Le pseudo doit contenir entre 2 et 30 caractères."
+        );
         return;
     }
 
@@ -539,6 +558,7 @@ pseudoForm.addEventListener("submit", (event) => {
     showQuiz();
 });
 
+/* Calcul du score et affichage de la correction */
 quizForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -570,9 +590,20 @@ quizForm.addEventListener("submit", async (event) => {
 
 function changePseudo() {
     localStorage.removeItem("quizPseudo");
+
+    /*
+     * Supprime également le résultat local.
+     * Le classement Firebase déjà enregistré reste intact.
+     */
+    localStorage.removeItem("quizCompletedDate");
+    localStorage.removeItem("quizScore");
+    localStorage.removeItem("quizAnswers");
+
     pseudoInput.value = "";
+
     hideError(pseudoError);
     showScreen(pseudoScreen);
+
     pseudoInput.focus();
 }
 
@@ -581,3 +612,4 @@ document.getElementById("result-change-pseudo").addEventListener("click", change
 
 /* Démarrage */
 showQuiz();
+
