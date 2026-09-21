@@ -27,3 +27,20 @@ body {
     cursor: pointer;
     display: block;
 }
+.correction-card.correct {
+    border-left: 4px solid #198754;
+}
+
+.correction-card.incorrect {
+    border-left: 4px solid #dc3545;
+}
+
+.answer-correct {
+    color: #146c43;
+    font-weight: 700;
+}
+
+.answer-incorrect {
+    color: #b02a37;
+    font-weight: 700;
+}
