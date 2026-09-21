@@ -395,12 +395,134 @@ function showQuiz() {
     showScreen(quizScreen);
 }
 
-function showResult(score) {
+function showResult(score, answers) {
     resultName.textContent = getPseudo();
     resultScore.textContent = String(score);
+
+    dailyQuestions = getDailyQuestions();
+    renderCorrections(answers);
+
     showScreen(resultScreen);
+    loadLeaderboard();
+}
+}
+function renderCorrections(answers) {
+    correctionsContainer.replaceChildren();
+
+    dailyQuestions.forEach((question, index) => {
+        const selectedIndex = Number(answers[question.id]);
+        const isCorrect = selectedIndex === question.answer;
+
+        const card = document.createElement("article");
+        card.className = `card correction-card mb-3 ${isCorrect ? "correct" : "incorrect"}`;
+
+        const body = document.createElement("div");
+        body.className = "card-body";
+
+        const title = document.createElement("h3");
+        title.className = "h5";
+        title.textContent = `Question ${index + 1} : ${question.question}`;
+
+        const selected = document.createElement("p");
+        selected.className = isCorrect ? "answer-correct mb-2" : "answer-incorrect mb-2";
+        selected.textContent = `Votre réponse : ${question.options[selectedIndex]}`;
+
+        const correct = document.createElement("p");
+        correct.className = "mb-0";
+        correct.innerHTML = `<strong>Bonne réponse :</strong> ${question.options[question.answer]}`;
+
+        body.appendChild(title);
+        body.appendChild(selected);
+        body.appendChild(correct);
+
+        card.appendChild(body);
+        correctionsContainer.appendChild(card);
+    });
 }
 
+async function getFirebaseUser() {
+    if (auth.currentUser) {
+        return auth.currentUser;
+    }
+
+    const credential = await signInAnonymously(auth);
+    return credential.user;
+}
+
+async function saveScoreToFirebase(score) {
+    try {
+        const user = await getFirebaseUser();
+
+        const scoreReference = doc(
+            db,
+            "dailyScores",
+            getTodayKey(),
+            "entries",
+            user.uid
+        );
+
+        await setDoc(scoreReference, {
+            uid: user.uid,
+            pseudo: getPseudo(),
+            score: score,
+            completedAt: serverTimestamp()
+        });
+
+    } catch (error) {
+        console.error("Enregistrement du score indisponible.", error);
+    }
+}
+
+async function loadLeaderboard() {
+    leaderboard.replaceChildren();
+    leaderboardStatus.textContent = "Chargement du classement…";
+
+    try {
+        const scoresReference = collection(
+            db,
+            "dailyScores",
+            getTodayKey(),
+            "entries"
+        );
+
+        const scoresQuery = query(
+            scoresReference,
+            orderBy("score", "desc"),
+            limit(20)
+        );
+
+        const snapshot = await getDocs(scoresQuery);
+
+        if (snapshot.empty) {
+            leaderboardStatus.textContent = "Aucun score enregistré pour le moment.";
+            return;
+        }
+
+        leaderboardStatus.textContent = "Les 20 meilleurs scores du jour.";
+
+        snapshot.forEach((scoreDocument) => {
+            const data = scoreDocument.data();
+
+            const item = document.createElement("li");
+            item.className = "list-group-item d-flex justify-content-between align-items-center";
+
+            const pseudo = document.createElement("span");
+            pseudo.textContent = data.pseudo;
+
+            const score = document.createElement("strong");
+            score.textContent = `${data.score}/10`;
+
+            item.appendChild(pseudo);
+            item.appendChild(score);
+
+            leaderboard.appendChild(item);
+        });
+
+    } catch (error) {
+        console.error("Classement indisponible.", error);
+        leaderboardStatus.textContent = "Le classement est momentanément indisponible.";
+    }
+}
 pseudoForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
